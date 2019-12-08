@@ -51,3 +51,7 @@ type: `object`
   totalDocuments
 }
 ```
+
+### Example
+
+`Article.search({ title: 'node' }, { limit: 25, page: 1, fields: ['title'] })`
