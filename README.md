@@ -7,7 +7,7 @@
 
 **`filter`** - just like mongoose filter object like for `.find` method
 
-type: `number|string`
+type: `object`
 
 **`options`** - pagination and search options
 
