@@ -32,7 +32,7 @@ function documentSearchPlugin(schema) {
     }
 
       
-    let regExpQuery = {};
+    const regExpQuery = {};
 
     if (Array.isArray(options.fields)) {
       for (let i = 0; i < options.fields.length; i++) {

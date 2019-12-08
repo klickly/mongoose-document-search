@@ -1,23 +1,45 @@
 # mongoose-document-search
-Search plugin for mongoose
+#### Search plugin for mongoose
+
+1) Use plugin for your schema `schema.plugin(documentSearchPlugin)`
+
+2) Use static `search` method for your model  `const result = Model.search(filter, options);`
+
+**`filter`** - just like mongoose filter object like for `.find` method
+
+type: `number|string`
+
+**`options`** - pagination and search options
+
+type: `object`
+###### page
+type: `string|number`
+default: `1`
+###### limit
+type: `string|number`
+default: `10`
+###### sort
+type: `string|object`
+- string `asc` or `desc` is used it will be applied for `fields`
+- object  `{ createdAt: 1, name: -1 }`
+
+###### fields
+type: `string[]` 
+search field in `filter` object
+
+**`result`** - search response
+
+type: `object`
+
+###### data
+
+type: `object[]`
+
+###### meta
+
+type: `object`
 ```
-schema.plugin(documentSearchPlugin)
-
-const { data, meta } = Model.search(filter, options);
-
-filter - just a filter object like for .find method
-
-options
-page { number }
-limit { number }
-sort { string asc | string desc | object{[prop]: number } }
-fields { string[] } - search fields from filter object
- 
- #Example
-const result = await Cats.search({name: 'monty'}, { page: 1, limit: 10, fields: ['name'], sort: 'desc' });
-
-result.data { object[] }
-result.meta {
+{
   totalPages
   currentPage
   firstPage
