@@ -10,7 +10,7 @@ const isNumber = val => !isNaN(parseFloat(val)) && isFinite(val);
  * @returns obj copy with converted types
  */
 const convertObjectTypes = (obj) => {
-  if (!_.isObject(obj)) {
+  if (!isObject(obj)) {
       return obj;
   }
 
@@ -29,7 +29,7 @@ const convertObjectTypes = (obj) => {
           copy[prop] = true;
       } else if (val === 'false') {
           copy[prop] = false;
-      } else if (_.isArray(val)) {
+      } else if (Array.isArray(val)) {
           copy[prop] = val.map(v => convertObjectTypes(v));
       } else if (isString(val) && ObjectID.isValid(val)) {
         copy[prop] = new ObjectID(val);
