@@ -2,12 +2,12 @@ const { isObject } = require('./helpers');
 
 class AggregationQueryBuilder {
   constructor() {
-      this.query = [];
+    this.query = [];
   }
 
   addPipeline(pipeline) {
     if (!isObject(pipeline) || Object.keys(pipeline).length != 1) {
-        throw new Error(`Bad pipeline ${pipeline}`);
+      throw new Error(`Bad pipeline ${pipeline}`);
     }
 
     this.query.push(pipeline);
@@ -16,27 +16,27 @@ class AggregationQueryBuilder {
   }
 
   match($match) {
-      return this.addPipeline({ $match });
+    return this.addPipeline({ $match });
   }
 
   unwind($unwind) {
-      return this.addPipeline({ $unwind });
+    return this.addPipeline({ $unwind });
   }
 
   facet($facet) {
-      return this.addPipeline({ $facet });
+    return this.addPipeline({ $facet });
   }
 
   project($project) {
-      return this.addPipeline({ $project });
+    return this.addPipeline({ $project });
   }
 
   sort($sort) {
-      return this.addPipeline({ $sort });
+    return this.addPipeline({ $sort });
   }
 
   build() {
-      return this.query;
+    return this.query;
   }
 }
 
