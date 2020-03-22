@@ -1,6 +1,6 @@
 {
   "name": "mongoose-document-search",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mongoose regexp search plugin with pagination",
   "main": "index.js",
   "author": "Oleg Protsenko",
