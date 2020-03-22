@@ -1,6 +1,6 @@
 const MetaBuilder = require('./MetaBuilder');
 const AggregationQueryBuilder = require('./AggregationQueryBuilder');
-const { isObject, isString, isNumber } = require('./helpers');
+const { isObject, isString, isNumber, convertObjectTypes } = require('./helpers');
 
 const DEFAULT_LENGTH = 10;
 const DEFAULT_PAGE = 1;
@@ -31,7 +31,6 @@ function documentSearchPlugin(schema) {
       throw new Error('options.limit is not a number');
     }
 
-      
     const regExpQuery = {};
 
     if (Array.isArray(options.fields)) {
@@ -44,7 +43,10 @@ function documentSearchPlugin(schema) {
 
     const aggregationQuery = new AggregationQueryBuilder();
 
-    aggregationQuery.match({ ...query, ...regExpQuery });
+    aggregationQuery.match({
+      ...options.convertTypes ? convertObjectTypes(query) : query,
+      ...regExpQuery
+    });
 
     if (options.sort) {
       if (isObject(options.sort)) {

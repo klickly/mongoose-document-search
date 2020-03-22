@@ -5,5 +5,12 @@
   "main": "index.js",
   "author": "Oleg Protsenko",
   "license": "MIT",
-  "keywords": ["mongoose", "plugin", "search"]
+  "keywords": [
+    "mongoose",
+    "plugin",
+    "search"
+  ],
+  "dependencies": {
+    "bson": "^4.0.3"
+  }
 }
