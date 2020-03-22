@@ -1,4 +1,4 @@
-const ObjectID = require('bson').ObjectID;
+const { ObjectID } = require('bson');
 
 const isString = val => typeof val === 'string' || val.constructor === String;
 const isObject = val => val && Object.prototype.toString.call(val) === '[object Object]';
@@ -7,7 +7,7 @@ const isNumber = val => !isNaN(parseFloat(val)) && isFinite(val);
 /**
  * 
  * @param {any} obj
- * @returns obj copy with conveted types
+ * @returns obj copy with converted types
  */
 const convertObjectTypes = (obj) => {
   if (!_.isObject(obj)) {

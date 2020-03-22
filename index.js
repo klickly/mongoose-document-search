@@ -15,6 +15,10 @@ function documentSearchPlugin(schema) {
       limit: DEFAULT_LIMIT
     }, options);
 
+    if (options.convertTypes) {
+      query = convertObjectTypes(query);
+    }
+
     if (typeof options.page === 'string' && isNumber(options.page)) {
       options.page = parseInt(options.page, 10);
     }
@@ -44,7 +48,7 @@ function documentSearchPlugin(schema) {
     const aggregationQuery = new AggregationQueryBuilder();
 
     aggregationQuery.match({
-      ...options.convertTypes ? convertObjectTypes(query) : query,
+      ...query,
       ...regExpQuery
     });
 
