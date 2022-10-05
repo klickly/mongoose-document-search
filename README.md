@@ -1,4 +1,5 @@
 # mongoose-document-search
+
 #### Search plugin for mongoose
 
 1) Use plugin for your schema `schema.plugin(documentSearchPlugin)`
@@ -12,19 +13,27 @@ type: `object`
 **`options`** - pagination and search options
 
 type: `object`
+
 ###### page
+
 type: `string|number`
 default: `1`
+
 ###### limit
+
 type: `string|number`
 default: `10`
+
 ###### sort
+
 type: `string|object`
+
 - string `asc` or `desc` is used it will be applied for `fields`
 - object  `{ createdAt: 1, name: -1 }`
 
 ###### fields
-type: `string[]` 
+
+type: `string[]`
 search field in `filter` object
 
 **`result`** - search response
@@ -38,6 +47,7 @@ type: `object[]`
 ###### meta
 
 type: `object`
+
 ```
 {
   totalPages
