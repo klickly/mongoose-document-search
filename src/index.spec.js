@@ -14,7 +14,7 @@ describe('Test', () => {
     let hulk;
 
     before(async () => {
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27018/test', {
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://klicklyhost:30011,klicklyhost:30012,klicklyhost:30013/test?replicaSet=rs1', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

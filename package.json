@@ -1,10 +1,17 @@
 {
-    "name": "mongoose-document-search",
-    "version": "1.0.0",
+    "name": "@klickly/mongoose-document-search",
+    "version": "2.0.0",
     "description": "mongoose regexp search plugin with pagination",
     "main": "src/index.js",
-    "author": "Oleg Protsenko",
+    "author": "Klickly",
     "license": "MIT",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/klickly/mongoose-document-search.git"
+    },
     "keywords": [
         "mongoose",
         "plugin",
@@ -14,12 +21,12 @@
         "test": "node_modules/mocha/bin/mocha src/index.spec.js"
     },
     "dependencies": {
-        "bson": "^4.7.0"
+        "bson": "6.5.0"
     },
     "devDependencies": {
         "chai": "^4.2.0",
         "faker": "^4.1.0",
         "mocha": "^7.1.1",
-        "mongoose": "^5.13.4"
+        "mongoose": "8.3.1"
     }
 }

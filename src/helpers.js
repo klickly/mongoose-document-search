@@ -1,9 +1,8 @@
-const { ObjectID } = require('bson');
+const bson = require('bson');
 
 const isString = val => typeof val === 'string' || val.constructor === String;
 const isObject = val => val && Object.prototype.toString.call(val) === '[object Object]';
 const isNumber = val => !isNaN(parseFloat(val)) && isFinite(val);
-
 /**
  *
  * @param {any} obj
@@ -13,7 +12,7 @@ const convertObjectTypes = (obj) => {
     if (!isObject(obj)) {
         return obj;
     }
-
+    
     const copy = {};
 
     for (let prop in obj) {
@@ -31,8 +30,8 @@ const convertObjectTypes = (obj) => {
             copy[ prop ] = false;
         } else if (Array.isArray(val)) {
             copy[ prop ] = val.map(v => convertObjectTypes(v));
-        } else if (isString(val) && ObjectID.isValid(val)) {
-            copy[ prop ] = new ObjectID(val);
+        } else if (isString(val) && bson.ObjectId.isValid(val)) {
+            copy[ prop ] = new bson.ObjectId(val);
         } else {
             copy[ prop ] = convertObjectTypes(val);
         }
